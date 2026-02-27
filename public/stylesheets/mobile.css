@@ -208,6 +208,32 @@
     box-sizing: border-box;
   }
 
+  /* ===== Dimension purchase count tooltips ===== */
+  /* Reposition from left-of-button to above-button so they don't clip off-screen */
+
+  .c-modern-dim-tooltip-container .c-modern-dim-purchase-count-tooltip {
+    width: auto !important;
+    max-width: 90vw;
+    top: auto !important;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Hide the left-pointing arrow, not needed when tooltip is above */
+  .c-modern-dim-tooltip-container .c-modern-dim-purchase-count-tooltip::after {
+    display: none;
+  }
+
+  /* ===== General v-tooltip overrides ===== */
+
+  .general-tooltip .tooltip-inner {
+    max-width: 80vw;
+    width: auto;
+    word-wrap: break-word;
+  }
+
   /* ===== Subtabs flyout ===== */
 
   .subtabs {
