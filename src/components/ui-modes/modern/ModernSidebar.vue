@@ -57,6 +57,7 @@ export default {
   <div v-if="!isHidden">
     <button
       v-if="isMobile"
+      v-show="!isMobileOpen"
       class="o-mobile-sidebar-toggle"
       @click="toggleMobileSidebar"
     >
