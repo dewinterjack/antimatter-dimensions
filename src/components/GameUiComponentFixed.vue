@@ -48,6 +48,11 @@ export default {
   methods: {
     update() {
       this.ending = GameEnd.endState >= END_STATE_MARKERS.FADE_AWAY && !GameEnd.creditsClosed;
+      const ticker = document.querySelector(".c-news-ticker");
+      if (ticker) {
+        const bottom = ticker.getBoundingClientRect().bottom;
+        document.documentElement.style.setProperty("--news-ticker-bottom", `${bottom}px`);
+      }
     }
   }
 };

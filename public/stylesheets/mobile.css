@@ -7,7 +7,7 @@
 
   :root {
     --sidebar-width: 0px;
-    --news-ticker-bottom: 3.9rem;
+    --news-ticker-bottom: 39px;
   }
 
   .c-modern-sidebar {
@@ -32,7 +32,7 @@
   .o-mobile-sidebar-toggle {
     display: flex;
     position: fixed;
-    top: calc(var(--news-ticker-bottom) + 0.6rem);
+    top: calc(var(--news-ticker-bottom) + 8px);
     left: 0.5rem;
     z-index: 101;
     width: 3rem;
@@ -356,16 +356,16 @@
   /* ===== Help / Info buttons: position relative to news ticker ===== */
 
   .l-help-me {
-    top: calc(var(--news-ticker-bottom) + 0.6rem) !important;
+    top: calc(var(--news-ticker-bottom) + 8px) !important;
     margin-top: 0 !important;
   }
 
   .l-information.l-help-me {
-    top: calc(var(--news-ticker-bottom) + 3.1rem) !important;
+    top: calc(var(--news-ticker-bottom) + 33px) !important;
   }
 
   .h2p-tutorial--glow {
-    top: calc(var(--news-ticker-bottom) + 0.6rem) !important;
+    top: calc(var(--news-ticker-bottom) + 8px) !important;
     margin-top: 0 !important;
   }
 }
