@@ -234,6 +234,23 @@
     word-wrap: break-word;
   }
 
+  /* ===== Information modal ===== */
+
+  .l-information-modal {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .c-info-body {
+    font-size: 1.4rem !important;
+  }
+
+  .l-socials {
+    font-size: 4rem !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+  }
+
   /* ===== How To Play modal ===== */
 
   .l-h2p-modal {
