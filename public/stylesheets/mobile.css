@@ -29,7 +29,10 @@
   }
 
   .c-sidebar-resource {
+    width: 100% !important;
     border-right: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
   }
 
 
