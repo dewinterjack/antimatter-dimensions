@@ -2,6 +2,14 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Workflow Overview
+
+Every change follows this flow — do not stop partway and wait for the user:
+
+1. **Make changes** to the code
+2. **Verify in Chrome** — resize to mobile (`375x812`), take screenshots, test interactivity
+3. **Commit** — always commit immediately after verification passes
+
 ## Project Overview
 
 Antimatter Dimensions is an incremental/idle game built with **Vue 2.6** and **@vue/cli-service 5** (Webpack). It has two UI modes: Classic and Modern. The mobile responsive work targets **Modern UI only**.
@@ -99,6 +107,10 @@ All mobile overrides go in `public/stylesheets/mobile.css`, loaded last in `inde
 4. **Hover-based subtabs**: Tab buttons use `:hover` for subtab flyouts. On mobile, touch triggers hover — subtabs positioned at `left: var(--sidebar-width)` must be overridden for mobile sidebar width
 5. **Scoped styles**: Some styles live in `<style scoped>` blocks in `.vue` files, not global stylesheets. Check both when investigating
 6. **Tooltip positioning**: Dimension purchase count tooltip uses `transform: translate(calc(-125% - 1rem), -50%)` (left of button) — goes off-screen on mobile. `v-tooltip` tooltips use `.general-tooltip` class
+
+### Committing
+
+After visual verification passes, always commit the change immediately. Do not wait for the user to ask. Use concise commit messages matching the existing style (e.g., `Fix Information modal layout on mobile`). Never push unless explicitly asked.
 
 ## Existing Breakpoints
 
