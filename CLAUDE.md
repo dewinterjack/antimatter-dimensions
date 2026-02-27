@@ -79,7 +79,7 @@ Use Chrome browser automation to visually verify all changes. **Default to mobil
 **Chrome verification steps:**
 1. Resize window to mobile: `375x812` (default for all work)
 2. Navigate to `http://localhost:8080`
-3. Take screenshots and zoom into relevant areas to verify changes look correct
+3. Take screenshots to verify changes look correct
 4. Test any interactive elements affected by the change
 5. Only commit after visual verification passes
 
