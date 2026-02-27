@@ -7,7 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Every change follows this flow — do not stop partway and wait for the user:
 
 1. **Make changes** to the code
-2. **Verify in Chrome** — resize to mobile (`375x812`), take screenshots, test interactivity
+2. **Verify in Chrome** — resize to mobile (`430x932`), take screenshots, test interactivity
 3. **Commit** — always commit immediately after verification passes
 
 ## Project Overview
@@ -85,7 +85,7 @@ Any overrides in static CSS files (like `mobile.css`) **must use `!important`** 
 Use Chrome browser automation to visually verify all changes. **Default to mobile dimensions** since most active work targets mobile.
 
 **Chrome verification steps:**
-1. Resize window to mobile: `375x812` (default for all work)
+1. Resize window to mobile: `430x932` (default for all work)
 2. Navigate to `http://localhost:8080`
 3. Take screenshots to verify changes look correct
 4. Test any interactive elements affected by the change
@@ -93,7 +93,7 @@ Use Chrome browser automation to visually verify all changes. **Default to mobil
 
 **For desktop verification**, resize to `1200x900` or wider (above `768px` breakpoint).
 
-**Viewport reference:** Mobile `375x812` | Desktop `1200x900`+
+**Viewport reference:** Mobile `430x932` | Desktop `1200x900`+
 
 ### Mobile CSS Approach
 
