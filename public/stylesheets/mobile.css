@@ -28,6 +28,10 @@
     transform: translateX(0) !important;
   }
 
+  .c-sidebar-resource {
+    border-right: none !important;
+  }
+
 
   /* Hamburger toggle button */
   .o-mobile-sidebar-toggle {
