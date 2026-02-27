@@ -234,6 +234,81 @@
     word-wrap: break-word;
   }
 
+  /* ===== How To Play modal ===== */
+
+  .l-h2p-modal {
+    width: 100% !important;
+    height: 80vh !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .l-h2p-container {
+    flex-direction: column !important;
+    margin: 0.5rem 0 !important;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .l-h2p-search-tab {
+    width: 100% !important;
+    max-height: 8rem;
+    flex-direction: row !important;
+    flex-shrink: 0;
+    gap: 0.3rem;
+  }
+
+  .c-h2p-search-bar {
+    width: 8rem !important;
+    flex-shrink: 0;
+    font-size: 1.2rem !important;
+  }
+
+  .l-h2p-tab-list {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0.2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .o-h2p-tab-button {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.2rem 0.5rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  .l-h2p-info {
+    flex: 1 1 0 !important;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .c-h2p-title {
+    font-size: 2rem !important;
+  }
+
+  .c-h2p-body--title {
+    font-size: 1.8rem !important;
+  }
+
+  .c-h2p-body {
+    font-size: 1.3rem !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .l-h2p-body {
+    margin: 0.5rem 0.3rem 0 !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   /* ===== Subtabs flyout ===== */
 
   .subtabs {
