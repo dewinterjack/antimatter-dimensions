@@ -194,6 +194,26 @@
     width: 100% !important;
   }
 
+  .c-modal-away-progress__resources div {
+    min-width: 0 !important;
+    word-wrap: break-word;
+  }
+
+  /* Offline progress bar modal */
+  .modal-progress-bar {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .modal-progress-bar__buttons {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .modal-progress-bar__bg {
+    width: 100% !important;
+  }
+
   .c-modal-import-tree,
   .c-modal-options,
   .c-modal-options__large {
