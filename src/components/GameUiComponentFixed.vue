@@ -51,7 +51,9 @@ export default {
       const ticker = document.querySelector(".c-news-ticker");
       if (ticker) {
         const bottom = ticker.getBoundingClientRect().bottom;
-        document.documentElement.style.setProperty("--news-ticker-bottom", `${bottom}px`);
+        if (bottom > 0) {
+          document.documentElement.style.setProperty("--news-ticker-bottom", `${bottom}px`);
+        }
       }
     }
   }
