@@ -60,7 +60,14 @@ export default {
     },
     rootClassObject() {
       return {
-        "l-expanding-control-box--controls-width": this.widthSource !== undefined
+        "l-expanding-control-box--controls-width": this.widthSource !== undefined,
+        "l-expanding-control-box--open": [
+          this.states.OPEN_REQUESTED,
+          this.states.OPENING,
+          this.states.OPEN,
+          this.states.CLOSE_REQUESTED,
+          this.states.CLOSING
+        ].includes(this.state)
       };
     },
     containerStyle() {
@@ -112,6 +119,9 @@ export default {
   created() {
     this.state = this.states.CLOSED;
     this.on$("openrequest", () => this.openRequest = true);
+    this.on$("expanding-control-opened", openerId => {
+      if (openerId !== this._uid) this.openRequest = false;
+    });
   },
   mounted() {
     // Set the root and container elements to match the height of the button
@@ -154,7 +164,9 @@ export default {
       }
     },
     handleClick() {
-      this.openRequest = !this.openRequest;
+      const opening = !this.openRequest;
+      this.openRequest = opening;
+      if (opening) EventHub.ui.dispatch("expanding-control-opened", this._uid);
       this.hasMouse = this.openRequest;
     },
     mouseOn() {
@@ -218,6 +230,10 @@ export default {
 .l-expanding-control-box {
   position: relative;
   z-index: 3;
+}
+
+.l-expanding-control-box--open {
+  z-index: 6;
 }
 
 .l-expanding-control-box--controls-width {
