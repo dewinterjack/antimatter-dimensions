@@ -26,14 +26,27 @@ export default {
       achMultToBH: false,
       achMultToTP: false,
       achMultToTT: false,
-      renderedRowIndices: []
+      renderedRowIndices: [],
+      achievementsPerDisplayRow: 8
     };
   },
   computed: {
     isDoomed: () => Pelle.isDoomed,
     rows: () => Achievements.allRows,
+    allDisplayRows() {
+      const displayRows = [];
+      for (let i = 0; i < this.rows.length; i++) {
+        for (let start = 0; start < this.rows[i].length; start += this.achievementsPerDisplayRow) {
+          displayRows.push({
+            sourceRowIndex: i,
+            row: this.rows[i].slice(start, start + this.achievementsPerDisplayRow)
+          });
+        }
+      }
+      return displayRows;
+    },
     renderedRows() {
-      return this.rows.filter((_, i) => this.renderedRowIndices.includes(i));
+      return this.allDisplayRows.filter((_, i) => this.renderedRowIndices.includes(i));
     },
     boostText() {
       const achievementPower = formatX(this.achievementPower, 2, 3);
@@ -63,9 +76,12 @@ export default {
     }
   },
   created() {
+    this.updateAchievementsPerDisplayRow();
+    window.addEventListener("resize", this.onResize);
     this.startRowRendering();
   },
   beforeDestroy() {
+    window.removeEventListener("resize", this.onResize);
     cancelAnimationFrame(this.renderAnimationId);
   },
   methods: {
@@ -87,11 +103,21 @@ export default {
       this.achMultToBH = VUnlocks.achievementBH.canBeApplied;
       this.achMultToTT = Ra.unlocks.achievementTTMult.canBeApplied;
     },
+    onResize() {
+      const previous = this.achievementsPerDisplayRow;
+      this.updateAchievementsPerDisplayRow();
+      if (previous !== this.achievementsPerDisplayRow) {
+        this.startRowRendering();
+      }
+    },
+    updateAchievementsPerDisplayRow() {
+      this.achievementsPerDisplayRow = window.innerWidth <= 768 ? 3 : 8;
+    },
     startRowRendering() {
       const unlockedRows = [];
       const lockedRows = [];
-      for (let i = 0; i < this.rows.length; i++) {
-        const targetArray = this.rows[i].every(a => a.isUnlocked) ? unlockedRows : lockedRows;
+      for (let i = 0; i < this.allDisplayRows.length; i++) {
+        const targetArray = this.allDisplayRows[i].row.every(a => a.isUnlocked) ? unlockedRows : lockedRows;
         targetArray.push(i);
       }
       const renderedLockedRows = lockedRows.filter(row => this.renderedRowIndices.includes(row));
@@ -119,8 +145,8 @@ export default {
     isRendered(row) {
       return this.renderedRowIndices.includes(row);
     },
-    isObscured(row) {
-      return this.isDoomed ? false : row === 17;
+    isObscured(sourceRowIndex) {
+      return this.isDoomed ? false : sourceRowIndex === 16;
     },
     timeDisplay,
     timeDisplayNoDecimals,
@@ -176,10 +202,10 @@ export default {
     </div>
     <div class="l-achievement-grid">
       <NormalAchievementRow
-        v-for="(row, i) in renderedRows"
+        v-for="(displayRow, i) in renderedRows"
         :key="i"
-        :row="row"
-        :is-obscured="isObscured(i)"
+        :row="displayRow.row"
+        :is-obscured="isObscured(displayRow.sourceRowIndex)"
       />
     </div>
   </div>
