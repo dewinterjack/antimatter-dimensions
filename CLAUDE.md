@@ -108,6 +108,33 @@ All mobile overrides go in `public/stylesheets/mobile.css`, loaded last in `inde
 5. **Scoped styles**: Some styles live in `<style scoped>` blocks in `.vue` files, not global stylesheets. Check both when investigating
 6. **Tooltip positioning**: Dimension purchase count tooltip uses `transform: translate(calc(-125% - 1rem), -50%)` (left of button) — goes off-screen on mobile. `v-tooltip` tooltips use `.general-tooltip` class
 
+### Changelog
+
+When a meaningful player-facing change is made (new feature, bug fix, UI change — anything a player would notice), update the changelog:
+
+1. **Check `changelog/` for an existing entry dated today or yesterday** (files are named `YYYY-MM-DD.md`)
+2. **If today's file exists** — append the new entry to the appropriate section
+3. **If yesterday's file exists (no gap)** — append to yesterday's file rather than creating a new one
+4. **If the most recent file is older than yesterday (gap of >1 day)** — create a new file for today's date
+
+**New file format:**
+```markdown
+---
+date: YYYY-MM-DD
+name: Short Release Name
+---
+
+Brief description of this batch of changes.
+
+**Added things:**
+
+- Description of change
+```
+
+**Sections to use** (pick whichever apply): `Major things:`, `Added things:`, `New things:`, `Minor UI Changes:`, `Bugfixes:`, `Additional QoL and information:`
+
+Do **not** add changelog entries for internal-only changes (refactors, docs, tooling) that don't affect players.
+
 ### Committing
 
 After visual verification passes, always commit the change immediately. Do not wait for the user to ask. Use **Conventional Commits** format. Never push unless explicitly asked.
