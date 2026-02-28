@@ -550,6 +550,45 @@
   }
 }
 
+/* Touch-safe button interactions: prevent sticky hover/focus on touch devices */
+@media (max-width: 768px) and (hover: none) and (pointer: coarse) {
+  .o-primary-btn {
+    -webkit-tap-highlight-color: transparent;
+    appearance: none;
+  }
+
+  .o-primary-btn:not(.o-primary-btn--disabled):is(:hover, :focus, :focus-visible) {
+    color: var(--color-text) !important;
+    background-color: var(--color-base) !important;
+    border-color: var(--color-good) !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .o-primary-btn--subtab-option:not(.o-primary-btn--disabled):is(:hover, :focus, :focus-visible) {
+    background-color: var(--color-base) !important;
+    border-color: var(--color-accent) !important;
+  }
+
+  .o-primary-btn:not(.o-primary-btn--disabled):active {
+    color: var(--color-text-inverted) !important;
+    background-color: var(--color-good) !important;
+  }
+
+  .o-primary-btn--subtab-option:not(.o-primary-btn--disabled):active {
+    background-color: var(--color-accent) !important;
+  }
+
+  .o-primary-btn--disabled {
+    pointer-events: none !important;
+  }
+
+  .o-primary-btn--disabled:is(:focus, :focus-visible) {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
 /* Hide hamburger on desktop */
 @media (min-width: 769px) {
   .o-mobile-sidebar-toggle,
