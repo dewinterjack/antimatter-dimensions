@@ -63,6 +63,18 @@
     pointer-events: auto;
   }
 
+  /* Hamburger notification pulse */
+  .o-mobile-sidebar-toggle.has-notification {
+    border-color: var(--color-notification, yellow) !important;
+    animation: a-hamburger-notification-pulse 2s infinite;
+  }
+
+  @keyframes a-hamburger-notification-pulse {
+    0% { box-shadow: 0 0 0.3rem var(--color-notification, yellow); }
+    50% { box-shadow: 0 0 0.8rem var(--color-notification, yellow); }
+    100% { box-shadow: 0 0 0.3rem var(--color-notification, yellow); }
+  }
+
   /* Mobile subtab buttons (below hamburger) */
   .o-mobile-subtab-container {
     display: flex;

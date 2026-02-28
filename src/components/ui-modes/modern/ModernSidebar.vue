@@ -14,6 +14,7 @@ export default {
       tabVisibilities: [],
       isMobileOpen: false,
       isMobile: false,
+      hasAnyNotification: false,
       currentTabKey: "",
       currentSubtabKey: ""
     };
@@ -48,6 +49,7 @@ export default {
     update() {
       this.isHidden = AutomatorData.isEditorFullscreen;
       this.tabVisibilities = Tabs.newUI.map(x => x.isAvailable);
+      this.hasAnyNotification = Tabs.newUI.some(t => t.isAvailable && t.hasNotification);
       this.currentTabKey = this.$viewModel.tab;
       this.currentSubtabKey = this.$viewModel.subtab;
     },
@@ -76,6 +78,7 @@ export default {
       v-if="isMobile"
       v-show="!isMobileOpen && !isModalOpen"
       class="o-mobile-sidebar-toggle"
+      :class="{ 'has-notification': hasAnyNotification }"
       @click="toggleMobileSidebar"
     >
       <i class="fas fa-bars" />
