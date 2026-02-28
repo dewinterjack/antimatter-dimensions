@@ -1,0 +1,456 @@
+/* Mobile-responsive overrides for Modern UI.
+   All rules scoped to max-width: 768px so desktop is unaffected. */
+
+@media (max-width: 768px) {
+
+  /* ===== Sidebar ===== */
+
+  :root {
+    --sidebar-width: 0px;
+    --news-ticker-bottom: 39px;
+  }
+
+  .c-modern-sidebar {
+    width: 16rem !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.25s ease !important;
+    z-index: 100 !important;
+    height: 100% !important;
+    background-color: var(--color-base, #1d1b22) !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    pointer-events: auto !important;
+  }
+
+  .c-modern-sidebar.is-mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  .c-sidebar-resource {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+  }
+
+
+  /* Hamburger toggle button */
+  .o-mobile-sidebar-toggle {
+    display: flex;
+    position: fixed;
+    top: calc(var(--news-ticker-bottom) + 8px);
+    left: 0.5rem;
+    z-index: 101;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--color-text, #fff);
+    background-color: var(--color-base, #1d1b22);
+    border: 0.1rem solid var(--color-accent, #df5050);
+    border-radius: 0.4rem;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  /* Mobile subtab buttons (below hamburger) */
+  .o-mobile-subtab-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: calc(var(--news-ticker-bottom) + 8px + 3rem + 0.4rem);
+    left: 0.5rem;
+    z-index: 101;
+    gap: 0.4rem;
+    pointer-events: auto;
+  }
+
+  .o-mobile-subtab-btn {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: var(--color-text, #fff);
+    background-color: var(--color-base, #1d1b22);
+    border: 0.1rem solid var(--color-accent, #df5050);
+    border-radius: 0.4rem;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .o-mobile-subtab-btn.is-active {
+    background-color: var(--color-accent, #df5050);
+    color: #fff;
+  }
+
+  /* Overlay backdrop when sidebar is open */
+  .o-mobile-sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: auto;
+  }
+
+  .o-mobile-sidebar-overlay.is-visible {
+    display: block;
+  }
+
+  /* Game container: full width when sidebar is hidden */
+  .game-container {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+
+  /* ===== Dimension rows ===== */
+
+  .l-dimension-single-row {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    gap: 0.3rem;
+    padding: 0.4rem 0.5rem;
+  }
+
+  /* Text container spans full width */
+  .l-dimension-text-container {
+    grid-column: 1 / -1 !important;
+    height: auto !important;
+  }
+
+  /* Button container spans full width, remove min-width */
+  .l-dim-row-multi-button-container {
+    grid-column: 1 / -1 !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+  }
+
+  .l-dim-row-multi-button-container .o-primary-btn--new {
+    width: 100%;
+    max-width: 20rem;
+  }
+
+  /* ===== Dimensions container: reduce padding ===== */
+  .l-dimensions-container {
+    padding: 0.5rem 0.5rem !important;
+  }
+
+  /* ===== Dimension Boost / Galaxy buttons ===== */
+
+  .resets-container {
+    flex-direction: column !important;
+    height: auto !important;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .reset-container {
+    width: 90% !important;
+    height: auto !important;
+    min-height: 8rem;
+  }
+
+  .o-primary-btn--dimension-reset {
+    width: 100% !important;
+    max-width: none !important;
+    height: 5rem;
+  }
+
+  /* ===== Modes container (Until 10 / Sacrifice / Max All) ===== */
+
+  .modes-container {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    padding: 0 0.5rem !important;
+    justify-content: center !important;
+  }
+
+  .modes-container .o-primary-btn {
+    flex: 1 1 auto;
+    min-width: 5rem;
+  }
+
+  .modes-container .o-primary-btn--sacrifice {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  /* ===== Tickspeed row ===== */
+
+  .tickspeed-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .tickspeed-btn {
+    width: 100% !important;
+    max-width: 20rem;
+  }
+
+  .tickspeed-max-btn {
+    margin-left: 0 !important;
+  }
+
+  /* ===== Modals ===== */
+
+  .c-modal {
+    min-width: 0 !important;
+    width: 90vw !important;
+    max-width: 90vw !important;
+    box-sizing: border-box;
+  }
+
+  .c-modal__title {
+    width: auto !important;
+    max-width: 100%;
+  }
+
+  .c-modal-message {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .c-modal-message__text {
+    max-width: 100% !important;
+  }
+
+  .c-modal-away-progress {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .c-modal-away-progress__header {
+    width: 100% !important;
+  }
+
+  .c-modal-away-progress__resources div {
+    min-width: 0 !important;
+    word-wrap: break-word;
+  }
+
+  /* Offline progress bar modal */
+  .modal-progress-bar {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .modal-progress-bar__buttons {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .modal-progress-bar__bg {
+    width: 100% !important;
+  }
+
+  .c-modal-import-tree,
+  .c-modal-options,
+  .c-modal-options__large {
+    width: 100% !important;
+  }
+
+  .c-modal-hard-reset__input,
+  .c-modal-import__input,
+  .c-modal-import-tree__input,
+  .c-modal-input {
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* ===== Dimension purchase count tooltips ===== */
+  /* Reposition from left-of-button to above-button so they don't clip off-screen */
+
+  .c-modern-dim-tooltip-container .c-modern-dim-purchase-count-tooltip {
+    width: auto !important;
+    max-width: 90vw;
+    top: auto !important;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Hide the left-pointing arrow, not needed when tooltip is above */
+  .c-modern-dim-tooltip-container .c-modern-dim-purchase-count-tooltip::after {
+    display: none;
+  }
+
+  /* ===== General v-tooltip overrides ===== */
+
+  .general-tooltip .tooltip-inner {
+    max-width: 80vw;
+    width: auto;
+    word-wrap: break-word;
+  }
+
+  /* ===== Information modal ===== */
+
+  .l-information-modal {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .c-info-body {
+    font-size: 1.4rem !important;
+  }
+
+  .l-socials {
+    font-size: 4rem !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+  }
+
+  /* ===== How To Play modal ===== */
+
+  .l-h2p-modal {
+    width: 100% !important;
+    height: 80vh !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .l-h2p-container {
+    flex-direction: column !important;
+    margin: 0.5rem 0 !important;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .l-h2p-search-tab {
+    width: 100% !important;
+    max-height: 8rem;
+    flex-direction: row !important;
+    flex-shrink: 0;
+    gap: 0.3rem;
+  }
+
+  .c-h2p-search-bar {
+    width: 8rem !important;
+    flex-shrink: 0;
+    font-size: 1.2rem !important;
+  }
+
+  .l-h2p-tab-list {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 0.2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .o-h2p-tab-button {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.2rem 0.5rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  .l-h2p-info {
+    flex: 1 1 0 !important;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .c-h2p-title {
+    font-size: 2rem !important;
+  }
+
+  .c-h2p-body--title {
+    font-size: 1.8rem !important;
+  }
+
+  .c-h2p-body {
+    font-size: 1.3rem !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .l-h2p-body {
+    margin: 0.5rem 0.3rem 0 !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* ===== Subtabs flyout ===== */
+  /* Hide hover-triggered subtab flyouts on mobile to prevent
+     the double-tap issue (first tap triggers :hover, second taps clicks) */
+
+  .o-tab-btn:hover {
+    color: inherit !important;
+    background: inherit !important;
+  }
+
+  .o-tab-btn:hover .subtabs {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .o-tab-btn--subtabs:hover::after {
+    border-left-width: 0 !important;
+  }
+
+  .subtabs {
+    left: 16rem !important;
+  }
+
+  /* ===== General overflow prevention ===== */
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .game-container,
+  .tab-container,
+  .l-antimatter-dim-tab {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* ===== Header / resource display adjustments ===== */
+
+  .l-reset-buttons-container {
+    position: relative !important;
+    min-height: auto;
+  }
+
+  /* ===== Help / Info buttons: position relative to news ticker ===== */
+
+  .l-help-me {
+    top: calc(var(--news-ticker-bottom) + 8px) !important;
+    margin-top: 0 !important;
+  }
+
+  .l-information.l-help-me {
+    top: calc(var(--news-ticker-bottom) + 33px) !important;
+  }
+
+  .h2p-tutorial--glow {
+    top: calc(var(--news-ticker-bottom) + 8px) !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 769px) {
+  .o-mobile-sidebar-toggle,
+  .o-mobile-sidebar-overlay {
+    display: none !important;
+  }
+}

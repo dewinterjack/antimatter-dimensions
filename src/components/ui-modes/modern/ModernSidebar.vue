@@ -11,37 +11,104 @@ export default {
   data() {
     return {
       isHidden: false,
-      tabVisibilities: []
+      tabVisibilities: [],
+      isMobileOpen: false,
+      isMobile: false,
+      currentTabKey: "",
+      currentSubtabKey: ""
     };
   },
   computed: {
-    tabs: () => Tabs.newUI
+    tabs: () => Tabs.newUI,
+    sidebarClasses() {
+      return {
+        "c-modern-sidebar": true,
+        "is-mobile-open": this.isMobileOpen
+      };
+    },
+    mobileSubtabs() {
+      if (!this.isMobile) return [];
+      const currentTab = Tabs.newUI.find(t => t.key === this.currentTabKey);
+      if (!currentTab) return [];
+      const available = currentTab.subtabs.filter(s => s.isAvailable);
+      return available.length > 1 ? available : [];
+    }
+  },
+  created() {
+    this.checkMobile();
+    window.addEventListener("resize", this.checkMobile);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.checkMobile);
   },
   methods: {
     update() {
       this.isHidden = AutomatorData.isEditorFullscreen;
       this.tabVisibilities = Tabs.newUI.map(x => x.isAvailable);
+      this.currentTabKey = this.$viewModel.tab;
+      this.currentSubtabKey = this.$viewModel.subtab;
     },
+    checkMobile() {
+      this.isMobile = window.innerWidth <= 768;
+      if (!this.isMobile) {
+        this.isMobileOpen = false;
+      }
+    },
+    toggleMobileSidebar() {
+      this.isMobileOpen = !this.isMobileOpen;
+    },
+    closeMobileSidebar() {
+      this.isMobileOpen = false;
+    },
+    navigateSubtab(subtab) {
+      subtab.show(true);
+    }
   },
 };
 </script>
 
 <template>
-  <div
-    v-if="!isHidden"
-    class="c-modern-sidebar"
-  >
-    <ModernSidebarCurrency />
-    <template
-      v-for="(tab, tabPosition) in tabs"
+  <div v-if="!isHidden">
+    <button
+      v-if="isMobile"
+      v-show="!isMobileOpen"
+      class="o-mobile-sidebar-toggle"
+      @click="toggleMobileSidebar"
     >
-      <ModernTabButton
-        v-if="tabVisibilities[tabPosition]"
-        :key="tab.name"
-        :tab="tab"
-        :tab-position="tabPosition"
+      <i class="fas fa-bars" />
+    </button>
+    <div
+      v-if="isMobile && !isMobileOpen && mobileSubtabs.length > 0"
+      class="o-mobile-subtab-container"
+    >
+      <button
+        v-for="subtab in mobileSubtabs"
+        :key="subtab.key"
+        class="o-mobile-subtab-btn"
+        :class="{ 'is-active': subtab.key === currentSubtabKey }"
+        @click="navigateSubtab(subtab)"
+        v-html="subtab.symbol"
       />
-    </template>
+    </div>
+    <div
+      class="o-mobile-sidebar-overlay"
+      :class="{ 'is-visible': isMobileOpen }"
+      @click="closeMobileSidebar"
+    />
+    <div :class="sidebarClasses">
+      <ModernSidebarCurrency />
+      <template
+        v-for="(tab, tabPosition) in tabs"
+      >
+        <ModernTabButton
+          v-if="tabVisibilities[tabPosition]"
+          :key="tab.name"
+          :tab="tab"
+          :tab-position="tabPosition"
+          @click.native="closeMobileSidebar"
+        />
+      </template>
+    </div>
   </div>
 </template>
 
