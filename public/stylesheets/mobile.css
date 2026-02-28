@@ -427,6 +427,14 @@
 
   /* ===== Options tabs ===== */
 
+  .tab-container > .l-antimatter-dim-tab {
+    justify-content: flex-start !important;
+  }
+
+  .c-cloud-options-header {
+    margin-top: 1rem !important;
+  }
+
   .l-options-tab,
   .l-options-grid {
     width: 100% !important;
