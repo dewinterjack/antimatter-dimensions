@@ -26,6 +26,9 @@ export default {
         "is-mobile-open": this.isMobileOpen
       };
     },
+    isModalOpen() {
+      return this.$viewModel.modal.current !== undefined;
+    },
     mobileSubtabs() {
       if (!this.isMobile) return [];
       const currentTab = Tabs.newUI.find(t => t.key === this.currentTabKey);
@@ -71,14 +74,14 @@ export default {
   <div v-if="!isHidden">
     <button
       v-if="isMobile"
-      v-show="!isMobileOpen"
+      v-show="!isMobileOpen && !isModalOpen"
       class="o-mobile-sidebar-toggle"
       @click="toggleMobileSidebar"
     >
       <i class="fas fa-bars" />
     </button>
     <div
-      v-if="isMobile && !isMobileOpen && mobileSubtabs.length > 0"
+      v-if="isMobile && !isMobileOpen && !isModalOpen && mobileSubtabs.length > 0"
       class="o-mobile-subtab-container"
     >
       <button
