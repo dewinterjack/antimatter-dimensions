@@ -429,10 +429,10 @@
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box;
-    padding-left: 4.4rem !important;
+    padding-left: 0.6rem !important;
     padding-right: 0.6rem !important;
     overflow-x: hidden !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
   }
 
   .c-achievements-tab__header {
@@ -444,7 +444,7 @@
 
   .l-achievement-grid {
     width: 100% !important;
-    align-items: flex-start !important;
+    align-items: stretch !important;
     overflow-x: hidden !important;
   }
 
@@ -454,10 +454,11 @@
     width: 100% !important;
     min-width: 0 !important;
     justify-items: center !important;
+    column-gap: 0.2rem !important;
   }
 
   .l-achievement-grid__cell {
-    margin: 0.4rem !important;
+    margin: 0.2rem !important;
   }
 
   /* ===== Header / resource display adjustments ===== */
