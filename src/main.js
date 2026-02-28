@@ -1,3 +1,4 @@
+import "./registerServiceWorker";
 import "drag-drop-touch";
 import "./shims";
 import "./merge-globals";

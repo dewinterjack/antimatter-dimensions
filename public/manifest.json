@@ -1,0 +1,16 @@
+{
+  "name": "Antimatter Dimensions",
+  "short_name": "AD",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ]
+}
