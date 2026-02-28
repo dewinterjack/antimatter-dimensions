@@ -275,4 +275,12 @@ export default {
 .c-changelog-body li {
   margin: 0.5rem 0;
 }
+
+.c-changelog-body p {
+  margin: 0.5rem 0;
+}
+
+.c-changelog-body ul {
+  margin: 0.5rem 0;
+}
 </style>

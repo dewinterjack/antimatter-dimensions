@@ -47,6 +47,14 @@ module.exports = {
   outputDir: STEAM ? "../AppFiles" : "dist",
   configureWebpack: {
     devtool: DEV ? "eval-source-map" : "source-map",
-    plugins
+    plugins,
+    module: {
+      rules: [
+        {
+          test: /\.md$/,
+          type: "asset/source"
+        }
+      ]
+    }
   }
 };
