@@ -360,9 +360,18 @@
   /* Hide hover-triggered subtab flyouts on mobile to prevent
      the double-tap issue (first tap triggers :hover, second taps clicks) */
 
+  .o-tab-btn:hover {
+    color: inherit !important;
+    background: inherit !important;
+  }
+
   .o-tab-btn:hover .subtabs {
     opacity: 0 !important;
     pointer-events: none !important;
+  }
+
+  .o-tab-btn--subtabs:hover::after {
+    border-left-width: 0 !important;
   }
 
   .subtabs {
