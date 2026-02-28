@@ -445,7 +445,7 @@
   .l-achievement-grid {
     width: 100% !important;
     align-items: stretch !important;
-    overflow-x: hidden !important;
+    overflow: visible !important;
   }
 
   .l-achievement-grid__row {
@@ -455,10 +455,32 @@
     min-width: 0 !important;
     justify-items: center !important;
     column-gap: 0.2rem !important;
+    overflow: visible !important;
   }
 
   .l-achievement-grid__cell {
     margin: 0.2rem !important;
+    overflow: visible !important;
+  }
+
+  .o-achievement__tooltip {
+    width: min(20rem, calc(100vw - 2rem)) !important;
+    left: 50% !important;
+    right: auto !important;
+    margin-left: 0 !important;
+    transform: translateX(-50%);
+  }
+
+  .l-achievement-grid__row > .l-achievement-grid__cell:nth-child(3n + 1) .o-achievement__tooltip {
+    left: 0 !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  .l-achievement-grid__row > .l-achievement-grid__cell:nth-child(3n) .o-achievement__tooltip {
+    left: auto !important;
+    right: 0 !important;
+    transform: none !important;
   }
 
   /* ===== Header / resource display adjustments ===== */
