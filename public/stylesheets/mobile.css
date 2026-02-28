@@ -357,6 +357,13 @@
   }
 
   /* ===== Subtabs flyout ===== */
+  /* Hide hover-triggered subtab flyouts on mobile to prevent
+     the double-tap issue (first tap triggers :hover, second taps clicks) */
+
+  .o-tab-btn:hover .subtabs {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 
   .subtabs {
     left: 16rem !important;
