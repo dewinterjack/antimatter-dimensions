@@ -161,4 +161,23 @@ export default {
   height: 30px;
   padding: 0;
 }
+
+@media (hover: hover) and (pointer: fine) {
+  .l-button-container:hover {
+    color: var(--color-text-inverted);
+    background-color: var(--color-good);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .l-button-container:hover {
+    color: var(--color-text);
+    background-color: var(--color-base);
+  }
+
+  .l-button-container:active {
+    color: var(--color-text-inverted);
+    background-color: var(--color-good);
+  }
+}
 </style>
