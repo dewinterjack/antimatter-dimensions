@@ -1,4 +1,4 @@
-if ("serviceWorker" in navigator) {
+if ("serviceWorker" in navigator && process.env.VUE_APP_DISABLE_SW !== "true") {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./service-worker.js").then(registration => {
       registration.addEventListener("updatefound", () => {
