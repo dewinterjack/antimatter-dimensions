@@ -110,7 +110,25 @@ All mobile overrides go in `public/stylesheets/mobile.css`, loaded last in `inde
 
 ### Committing
 
-After visual verification passes, always commit the change immediately. Do not wait for the user to ask. Use concise commit messages matching the existing style (e.g., `Fix Information modal layout on mobile`). Never push unless explicitly asked.
+After visual verification passes, always commit the change immediately. Do not wait for the user to ask. Use **Conventional Commits** format. Never push unless explicitly asked.
+
+**Conventional Commits format:** `<type>(<scope>): <description>`
+
+Types:
+- `feat` — new feature or functionality
+- `fix` — bug fix
+- `style` — CSS/styling changes (no logic change)
+- `refactor` — code restructuring (no behavior change)
+- `chore` — build, config, tooling, dependencies
+- `docs` — documentation only
+
+Scope is optional but encouraged (e.g., `mobile`, `sidebar`, `modal`, `dimensions`).
+
+Examples:
+- `fix(mobile): prevent Information modal from overflowing viewport`
+- `feat(mobile): add hamburger menu for sidebar navigation`
+- `style(mobile): adjust achievement grid spacing`
+- `chore: disable service worker in local dev`
 
 ## Existing Breakpoints
 
