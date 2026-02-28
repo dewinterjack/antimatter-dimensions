@@ -3,6 +3,12 @@
 
 @media (max-width: 768px) {
 
+  /* ===== Splash / loading screen ===== */
+
+  #loading {
+    background-size: contain !important;
+  }
+
   /* ===== Sidebar ===== */
 
   :root {
