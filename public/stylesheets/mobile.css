@@ -215,6 +215,8 @@
     min-width: 0 !important;
     width: 90vw !important;
     max-width: 90vw !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
     box-sizing: border-box;
   }
 
@@ -274,6 +276,21 @@
     width: 100% !important;
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  /* ===== Hotkeys modal ===== */
+
+  .l-modal-hotkeys {
+    flex-direction: column !important;
+  }
+
+  .l-modal-hotkeys__column {
+    width: 100% !important;
+  }
+
+  .l-modal-hotkeys__column--right {
+    margin-left: 0 !important;
+    margin-top: 1rem !important;
   }
 
   /* ===== Dimension purchase count tooltips ===== */
