@@ -423,6 +423,43 @@
     max-width: 100vw;
   }
 
+  /* ===== Achievements tab mobile layout ===== */
+
+  .l-achievements-tab {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    padding-left: 4.4rem !important;
+    padding-right: 0.6rem !important;
+    overflow-x: hidden !important;
+    align-items: flex-start !important;
+  }
+
+  .c-achievements-tab__header {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  .l-achievement-grid {
+    width: 100% !important;
+    align-items: flex-start !important;
+    overflow-x: hidden !important;
+  }
+
+  .l-achievement-grid__row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    justify-items: center !important;
+  }
+
+  .l-achievement-grid__cell {
+    margin: 0.4rem !important;
+  }
+
   /* ===== Header / resource display adjustments ===== */
 
   .l-reset-buttons-container {
