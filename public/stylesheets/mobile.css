@@ -57,6 +57,38 @@
     pointer-events: auto;
   }
 
+  /* Mobile subtab buttons (below hamburger) */
+  .o-mobile-subtab-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: calc(var(--news-ticker-bottom) + 8px + 3rem + 0.4rem);
+    left: 0.5rem;
+    z-index: 101;
+    gap: 0.4rem;
+    pointer-events: auto;
+  }
+
+  .o-mobile-subtab-btn {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: var(--color-text, #fff);
+    background-color: var(--color-base, #1d1b22);
+    border: 0.1rem solid var(--color-accent, #df5050);
+    border-radius: 0.4rem;
+    cursor: pointer;
+    pointer-events: auto;
+  }
+
+  .o-mobile-subtab-btn.is-active {
+    background-color: var(--color-accent, #df5050);
+    color: #fff;
+  }
+
   /* Overlay backdrop when sidebar is open */
   .o-mobile-sidebar-overlay {
     display: none;

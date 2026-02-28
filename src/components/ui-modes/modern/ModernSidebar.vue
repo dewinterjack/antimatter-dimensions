@@ -13,7 +13,9 @@ export default {
       isHidden: false,
       tabVisibilities: [],
       isMobileOpen: false,
-      isMobile: false
+      isMobile: false,
+      currentTabKey: "",
+      currentSubtabKey: ""
     };
   },
   computed: {
@@ -23,6 +25,13 @@ export default {
         "c-modern-sidebar": true,
         "is-mobile-open": this.isMobileOpen
       };
+    },
+    mobileSubtabs() {
+      if (!this.isMobile) return [];
+      const currentTab = Tabs.newUI.find(t => t.key === this.currentTabKey);
+      if (!currentTab) return [];
+      const available = currentTab.subtabs.filter(s => s.isAvailable);
+      return available.length > 1 ? available : [];
     }
   },
   created() {
@@ -36,6 +45,8 @@ export default {
     update() {
       this.isHidden = AutomatorData.isEditorFullscreen;
       this.tabVisibilities = Tabs.newUI.map(x => x.isAvailable);
+      this.currentTabKey = this.$viewModel.tab;
+      this.currentSubtabKey = this.$viewModel.subtab;
     },
     checkMobile() {
       this.isMobile = window.innerWidth <= 768;
@@ -48,6 +59,9 @@ export default {
     },
     closeMobileSidebar() {
       this.isMobileOpen = false;
+    },
+    navigateSubtab(subtab) {
+      subtab.show(true);
     }
   },
 };
@@ -63,6 +77,19 @@ export default {
     >
       <i class="fas fa-bars" />
     </button>
+    <div
+      v-if="isMobile && !isMobileOpen && mobileSubtabs.length > 0"
+      class="o-mobile-subtab-container"
+    >
+      <button
+        v-for="subtab in mobileSubtabs"
+        :key="subtab.key"
+        class="o-mobile-subtab-btn"
+        :class="{ 'is-active': subtab.key === currentSubtabKey }"
+        @click="navigateSubtab(subtab)"
+        v-html="subtab.symbol"
+      />
+    </div>
     <div
       class="o-mobile-sidebar-overlay"
       :class="{ 'is-visible': isMobileOpen }"
