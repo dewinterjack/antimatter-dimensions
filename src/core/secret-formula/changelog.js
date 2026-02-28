@@ -9,6 +9,22 @@ export const changelog = [
    * }
    */
   {
+    date: [2025, 2, 28],
+    name: "A New Dimension",
+    info: `
+A new fork has arrived! This is a continuation of Antimatter Dimensions maintained by JDW.
+Expect a focus on mobile support, quality of life improvements, and keeping the game alive for everyone.
+<br>
+<br>
+<b>Major things:</b><br>
+<ul>
+<li>Added mobile responsive layout for Modern UI</li>
+<li>Added installable Progressive Web App (PWA) support with offline play</li>
+</ul>
+<br>
+`
+  },
+  {
     date: [2024, 8, 12],
     name: "Hi Ra",
     info: `

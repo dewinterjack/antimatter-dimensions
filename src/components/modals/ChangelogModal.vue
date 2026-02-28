@@ -196,6 +196,79 @@ export default {
 .t-s12 .o-changelog-tab-button {
   border-bottom: 0.1rem solid black;
 }
+
+@media (max-width: 768px) {
+  .l-changelog-modal {
+    width: 100%;
+    /* stylelint-disable-next-line unit-allowed-list */
+    height: 85vh;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .c-changelog-title {
+    font-size: 2.2rem;
+  }
+
+  .l-changelog-container {
+    flex-direction: column;
+    margin: 0.5rem 0;
+    overflow: hidden;
+  }
+
+  .l-changelog-search-tab {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  .l-changelog-tab-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 0 0 auto;
+    gap: 0.3rem;
+    margin: 0.25rem 0;
+    padding-bottom: 0.3rem;
+  }
+
+  .o-changelog-tab-button {
+    white-space: nowrap;
+    border-bottom: none;
+    border: 0.1rem solid var(--color-text, white);
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .l-changelog-info {
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  .c-changelog-body--title {
+    font-size: 1.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .c-changelog-body {
+    font-size: 1.4rem;
+  }
+
+  .l-changelog-body {
+    margin: 0.5rem 0 0;
+    padding-right: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .l-changelog-header {
+    flex: 0 0 auto;
+  }
+}
 </style>
 
 <style>

@@ -334,6 +334,8 @@
     font-size: 4rem !important;
     flex-wrap: wrap !important;
     gap: 1.5rem !important;
+    overflow: visible !important;
+    position: relative !important;
   }
 
   /* ===== How To Play modal ===== */

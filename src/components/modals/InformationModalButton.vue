@@ -74,4 +74,24 @@ export default {
   width: 20rem;
   font-size: 1.5rem;
 }
+
+@media (max-width: 768px) {
+  [ach-tooltip]::before {
+    width: auto;
+    max-width: 15rem;
+    white-space: nowrap;
+    font-size: 1.2rem;
+  }
+
+  .c-socials--icon__wrapper:nth-last-child(-n+2)[ach-tooltip]::before {
+    left: auto;
+    right: 0;
+    transform: none;
+  }
+
+  .c-socials--icon__wrapper:nth-last-child(-n+2)[ach-tooltip]::after {
+    left: auto;
+    right: 0.8rem;
+  }
+}
 </style>
